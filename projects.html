@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&family=Playwrite+CZ:wght@100..400&display=swap" rel="stylesheet">  
+  <title>Projects — Portfolio</title>
+  <style>
+    :root{
+  --bg:#f5f5f7; /* soft light grey */
+  --card:#ffffff; /* clean white card */
+  --muted:#555;   /* soft dark grey for text */
+  --accent: linear-gradient(135deg,#6ee7b7 0%, #60a5fa 100%);
+}
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:"Merriweather",serif;
+      line-height: 22px;
+      background:var(--bg);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:40px 20px;
+      letter-spacing: 1px;
+    }
+    .wrap{max-width:1100px; margin:0 auto; display:flex; flex-direction:column; justify-content:center; min-height:100vh;
+      max-width:1100px;
+      margin:0 auto;
+      color: black;
+    }
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;color: black;}
+    header h1{font-size:1.4rem;margin:0}
+    header p{margin:0;color:var(--muted);font-size:0.95rem;color: black;}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(2,1fr);
+      gap:20px;
+    }
+    @media (max-width:720px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{height:260px; display:flex; flex-direction:row; align-items:center;
+      background:linear-gradient(180deg, rgba(131, 125, 125, 0.02), rgba(182, 56, 56, 0.616));
+      border:1px solid rgba(255,255,255,0.06);
+      padding:18px;
+      border-radius:12px;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      transition:transform .22s ease, box-shadow .22s ease;
+      box-shadow:0 4px 18px rgba(0,0,0,0.6);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 12px 40px rgba(0,0,0,0.8)}
+
+    .thumb{
+      width:150px;height:100px;border-radius:8px;flex-shrink:0;
+      background:linear-gradient(135deg,#111 0%, #222 100%);
+      display:flex;align-items:center;justify-content:center;font-size:0.85rem;color:var(--muted);
+      border:1px solid rgba(255,255,255,0.04);
+    }
+
+    .content{flex:1}
+    .title{font-size:1.05rem;margin:0 0 6px 0;color: black;}
+    .desc{margin:0 0 10px 0;color:var(--muted);font-size:0.95rem;color: #333333;}
+
+    .meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;color: black;}
+    .tag{padding:6px 8px;border-radius:8px;font-size:0.78rem;background:rgba(24, 240, 53, 0.03);color:var(--muted);color: black;}
+
+    .actions{display:flex;gap:10px}
+    .btn{
+      padding:8px 12px;border-radius:10px;border:0;cursor:pointer;font-weight:600;font-size:0.9rem;
+      background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.08);
+      transition:all .18s ease;color: brown;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{
+      background:var(--accent);
+      background-clip:padding-box;
+      color:#000;border:0;
+      box-shadow:0 6px 18px rgba(96,165,250,0.12);
+    }
+
+    /* small helper: centered notice when there are only two projects */
+    .note{margin-top:18px;color:var(--muted);font-size:0.95rem}
+      .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border:1px solid rgba(255,255,255,0.06);
+      padding:18px;
+      border-radius:12px;
+      display:flex;
+      gap:16px;
+      align-items:flex-start;
+      transition:transform .22s ease, box-shadow .22s ease;
+      box-shadow:0 4px 18px rgba(0,0,0,0.6);
+      opacity:0;
+      transform:translateY(20px);
+      animation:fadeUp .7s ease forwards;
+    }
+    .grid article:nth-child(1){animation-delay:0.2s;}
+    .grid article:nth-child(2){animation-delay:0.5s;}
+    @keyframes fadeUp{
+      0%{opacity:0; transform:translateY(20px);}
+      100%{opacity:1; transform:translateY(0);}
+    }
+    .thumb img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:8px;
+}
+.about-wrapper{
+        position: absolute;
+        top: 150px;
+        margin-left: 55%;
+        transform: translate(-50%);
+        text-align: left;
+    }
+    .about-title{
+        font-size: 60px;
+        margin-bottom: 20px;
+        color: grey;
+        text-transform: uppercase;
+        margin-left: 15%;
+    }
+    @media (max-width: 900px) {
+  .about-wrapper {
+    position: static;
+    margin: 0 auto 30px auto;
+    transform: none;
+    text-align: center;
+  }
+  .about-title {
+    margin-left: 0;
+    font-size: 45px;
+  }
+}
+
+/* Grid responsive */
+@media (max-width: 750px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Card responsive */
+@media (max-width: 620px) {
+  .card {
+    flex-direction: column;
+    height: auto;
+    text-align: center;
+    align-items: center;
+  }
+
+  .thumb {
+    width: 80%;
+    height: 180px;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+}
+
+/* Phone-size text adjustments */
+@media (max-width: 450px) {
+  .about-title {
+    font-size: 35px;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .desc {
+    font-size: 0.9rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <p>Two featured projects — click to view details.</p>
+      </div>
+      </header>
+      <div class="about-wrapper">
+            <div class="about-title">projects</div>
+        </div>
+
+    <main class="grid">
+      <!-- Project 1 -->
+      <article class="card">
+        <div class="thumb"><img src="proc.jfif" alt="Proctoring"></div>
+        <div class="content">
+          <h2 class="title">Smart Proctoring in Online Examination</h2>
+          <p class="desc">It detects tab switches and gaze-away events and immediately shows a warning to keep online exams fair.</p>
+          <div class="meta">
+            <span class="tag">Html</span>
+            <span class="tag">Css</span>
+            <span class="tag">Python</span>
+          </div>
+          <div class="actions">
+            <button class="btn" onclick="window.open('#','_blank')">Details</button>
+            <button class="btn primary" onclick="window.open('#','_blank')">Live Demo</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="card">
+        <div class="thumb"><img src="travel.jfif" alt="travel"></div>
+        <div class="content">
+          <h2 class="title">Travelling Agency</h2>
+          <p class="desc">Travelling Agency built with a HTML,CSS and Javascript with a backend of PHP and MYSQl database with a responsiveness.</p>
+          <div class="meta">
+            <span class="tag">Responsive</span>
+            <span class="tag">Accessibility</span>
+            <span class="tag">Design</span>
+          </div>
+          <div class="actions">
+    <button class="btn" onclick="window.open('http://localhost/WEBSITECREATION/firstpage.php','_blank')">Details</button>
+
+    <button class="btn primary" onclick="window.open('https://github.com/myrepo','_blank')">Source</button>
+</div>
+
+        </div>
+      </article>
+    </main>
+
+  </div>
+</body>
+</html>
