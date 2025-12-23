@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Uber Clone</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#fff;
+    color:#000;
+}
+
+/* ================= TOP BAR ================= */
+.top-bar{
+    background:#000; /* full-width background */
+    color:#fff;
+    padding:12px 18px;
+    display:flex;
+    justify-content:center; /* center the inner container */
+    align-items:center;
+    width:100%;
+    position:fixed; /* header stays on top */
+    top:0;
+    left:0;
+    z-index:1000;
+}
+
+/* Inner wrapper for content alignment */
+.header-inner {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    width:100%;
+    max-width:1200px;
+    padding: 0 18px; /* horizontal padding */
+}
+
+.logo{
+    font-size:20px;
+    font-weight:bold;
+}
+
+.top-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.top-actions a{
+    color:#fff;
+    text-decoration:none;
+}
+
+.signup-btn{
+    background:#fff;
+    color:#000;
+    border:none;
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.menu{
+    font-size:20px;
+    cursor:pointer;
+}
+
+/* ================= MAIN LAYOUT ================= */
+.container{
+    display:flex;
+    justify-content:center; /* horizontal center */
+    align-items:center;     /* vertical center */
+    flex-direction: column;
+    padding:24px;
+    min-height:100vh; /* full viewport height */
+    margin-top:60px; /* space for fixed header */
+}
+
+.content{
+    max-width:520px;
+    width:100%;
+    text-align:center; /* center text */
+}
+
+/* ================= HEADINGS ================= */
+h1{
+    font-size:36px;
+    font-weight:bold;
+    margin-bottom:18px;
+    line-height:1.2;
+}
+
+/* ================= LOCATION BOX ================= */
+.location-box{
+    background:#f3f3f3;
+    border-radius:12px;
+    padding:14px;
+    margin-bottom:12px;
+    text-align:left;
+}
+
+.input{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.input input{
+    border:none;
+    background:transparent;
+    font-size:16px;
+    width:100%;
+    outline:none;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    background:#000;
+    border-radius:50%;
+}
+
+.square{
+    width:10px;
+    height:10px;
+    background:#000;
+}
+
+.line{
+    width:2px;
+    height:22px;
+    background:#000;
+    margin-left:4px;
+    margin-top:4px;
+    margin-bottom:4px;
+}
+
+/* Arrow like Uber (NE direction) */
+.arrow{
+    font-size:18px;
+    transform:rotate(-45deg);
+    margin-left:auto;
+}
+
+/* ================= BUTTON ================= */
+.price-btn{
+    background:#000;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    padding:14px 18px;
+    width:160px;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+.login-text{
+    margin-top:10px;
+    color:#444;
+}
+
+/* ================= SUGGESTIONS ================= */
+h2{
+    margin-top:22px;
+    margin-bottom:14px;
+    font-size:26px;
+}
+
+/* ================= CARD ================= */
+.card{
+    background:#f3f3f3;
+    border-radius:14px;
+    padding:16px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.card-text h3{
+    font-size:18px;
+}
+
+.card-text p{
+    font-size:14px;
+    margin:6px 0 12px;
+    color:#444;
+}
+
+.details-btn{
+    background:#fff;
+    border:none;
+    padding:6px 14px;
+    border-radius:20px;
+    cursor:pointer;
+}
+
+.card-img svg{
+    width:110px;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:480px){
+    .container{
+        padding:16px;
+        min-height:auto;
+        align-items:flex-start;
+    }
+
+    h1{
+        font-size:28px;
+    }
+
+    .price-btn{
+        width:100%;
+    }
+
+    .card-img svg{
+        width:90px;
+    }
+
+    .header-inner {
+        padding:0 16px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header class="top-bar">
+    <div class="header-inner">
+        <div class="logo">Uber</div>
+        <div class="top-actions">
+            <a href="#">Log in</a>
+            <button class="signup-btn">Sign up</button>
+            <div class="menu">☰</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+<div class="content">
+
+<h1>Go anywhere with<br>Uber</h1>
+
+<div class="location-box">
+    <div class="input">
+        <span class="dot"></span>
+        <input type="text" placeholder="Pickup location">
+        <span class="arrow">➤</span>
+    </div>
+
+    <div class="line"></div>
+
+    <div class="input">
+        <span class="square"></span>
+        <input type="text" placeholder="Dropoff location">
+    </div>
+</div>
+
+<button class="price-btn">See prices</button>
+
+<p class="login-text">Log in to see your recent activity</p>
+
+<h2>Suggestions</h2>
+
+<div class="card">
+    <div class="card-text">
+        <h3>Ride</h3>
+        <p>Go anywhere with Uber.<br>Request a ride, hop in,...</p>
+        <button class="details-btn">Details</button>
+    </div>
+
+    <div class="card-img">
+        <!-- Uber-style car SVG -->
+        <svg viewBox="0 0 240 120" xmlns="http://www.w3.org/2000/svg">
+            <path d="M30 70 C30 50 60 40 90 40 H150 C180 40 210 50 210 70 V85 H30 Z" fill="#d9d9d9"/>
+            <path d="M70 40 L95 25 H145 L170 40 Z" fill="#cfcfcf"/>
+            <path d="M85 38 L100 28 H135 L155 38 Z" fill="#fff"/>
+            <circle cx="70" cy="85" r="12" fill="#2b2b2b"/>
+            <circle cx="170" cy="85" r="12" fill="#2b2b2b"/>
+            <circle cx="70" cy="85" r="6" fill="#555"/>
+            <circle cx="170" cy="85" r="6" fill="#555"/>
+        </svg>
+    </div>
+</div>
+
+</div>
+</main>
+
+</body>
+</html>
